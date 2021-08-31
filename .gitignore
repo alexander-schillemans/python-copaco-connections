@@ -1,0 +1,8 @@
+copaco/tests/
+tests/
+copaco/__pycache__/
+__pycache__/
+copaco/cache/*
+!copaco/cache/__init__.py
+dist/
+Pipfile.lock
