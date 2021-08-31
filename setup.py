@@ -9,7 +9,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
   name = 'python-copaco-connections',         
   packages=['copaco', 'copaco.models', 'copaco.constants', 'copaco.types', 'copaco.temp'],
-  version = '0.1.3',
+  version = '0.1.1',
   license='GPL-3.0-or-later',
   description = 'Easy python integrations for the Copaco Customer Connections',
   long_description=long_description,
