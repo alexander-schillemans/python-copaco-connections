@@ -1,7 +1,7 @@
 from .base import ConnectionType
 
 from copaco.utils import getFile
-from copaco.constants.mappings import PRICELISTITEM_MAPPINGS, STOCK_MAPPINGS, ATP_QUALIFICATIONS_MAPPINGS
+from copaco.constants.mappings import PRICELISTITEM_MAPPINGS, STOCK_MAPPINGS
 from copaco.constants.constants import PRICELISTITEM_STATUS
 from copaco.models.pricelist import PriceListItem, PriceList
 

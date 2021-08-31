@@ -20,8 +20,3 @@ STOCK_MAPPINGS = {
     'nextDeliveryAmount' : ['Copaco aantal eerstvolgende ontvangst'],
     'inventoryStatusCode' : ['Copaco ATP kwalificaties']
 }
-
-ATP_QUALIFICATIONS_MAPPINGS = {
-    'code' : ['Copaco ATP kwalificatie'],
-    'description' : ['Copaco ATP omschrijving']
-}
