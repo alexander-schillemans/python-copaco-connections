@@ -13,7 +13,7 @@ More info here: https://www.copaco.com/en-be/customer-service-e-commerce-fulfill
 
 Install with pipenv.
 
-```
+```python
 pipenv install python-copaco-connections
 ```
 
@@ -21,7 +21,7 @@ pipenv install python-copaco-connections
 
 Import the package and the CopacoConnectionBE object.
 
-```
+```python
 from copaco.connection import CopacoConnectionBE
 ```
 
@@ -29,7 +29,7 @@ from copaco.connection import CopacoConnectionBE
 
 Make the connection with your provided FTP credentials.
 
-```
+```python
 conn = CopacoConnectionBE(FTP_HOST, FTP_LOGIN, FTP_PASSWD)
 ```
 
@@ -38,7 +38,7 @@ conn = CopacoConnectionBE(FTP_HOST, FTP_LOGIN, FTP_PASSWD)
 
 You can retrieve the pricelist as follows:
 
-```
+```python
 priceList = conn.priceList.get()
 ```
 
@@ -69,3 +69,24 @@ You can find the attributes of this object and their use below:
 | nextDeliveryAmount  | Amount that will be delivered on next delivery |
 | inventoryStatusCode  | ATP code |
 | inventoryStatus  | Human-readable ATP code |
+
+
+## Sample script
+
+Show all articles with their prices, including levies.
+
+```python
+from copaco.connection import CopacoConnectionBE
+
+HOST = 'ftp.copaco.com'
+LOGIN = 'XXXX'
+PASSWD = 'XXXX'
+
+conn = CopacoConnectionBE(HOST, LOGIN, PASSWD)
+
+priceList = conn.priceList.get()
+for item in priceList:
+  formattedStr = '{description} - {number} - € {price}'.format(description=item.description, number=item.article, price=item.priceWithLevies)
+  print(formattedStr)
+
+```
