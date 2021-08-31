@@ -1,5 +1,5 @@
 PRICELISTITEM_MAPPINGS = {
-    'article' : ['Artikel'],
+    'article' : ['Artikel', 'Copaco artikelnummer'],
     'vendorCode' : ['Fabrikantscode'],
     'description' : ['Omschrijving'],
     'price' : ['Prijs'],
@@ -8,9 +8,20 @@ PRICELISTITEM_MAPPINGS = {
     'hierarchy' : ['produktindeling'],
     'unspscCode' : ['UNSPSC_code'],
     'EAN' : ['EAN_code'],
-    'status' : ['status'],
+    'statusCode' : ['status'],
     'auvibel' : ['Auvibel'],
     'reprobel' : ['Reprobel'],
     'recupel' : ['recupel'],
     'bebat' : ['bebat']
+}
+
+STOCK_MAPPINGS = {
+    'nextDelivery' : ['Copaco datum eerstvolgende ontvangst'],
+    'nextDeliveryAmount' : ['Copaco aantal eerstvolgende ontvangst'],
+    'inventoryStatusCode' : ['Copaco ATP kwalificaties']
+}
+
+ATP_QUALIFICATIONS_MAPPINGS = {
+    'code' : ['Copaco ATP kwalificatie'],
+    'description' : ['Copaco ATP omschrijving']
 }
