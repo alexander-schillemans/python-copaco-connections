@@ -1,3 +1,5 @@
+import datetime
+
 from .base import ConnectionType
 
 from copaco.utils import getFile
@@ -54,10 +56,11 @@ class PriceListType(ConnectionType):
                     for mAttr, mValues in STOCK_MAPPINGS.items():
                         for value in mValues:
                             if value in row: setattr(item, mAttr, row[value])
-                    
+                
+                    item.nextDelivery = datetime.datetime.strptime(item.nextDelivery, '%m-%d-%Y').date()
 
 
-        # 3: retrieve ATP status and add human-readable format
+        # 3: retrieve ATP status and add human-readable format to PriceListItem objects
         atpListPath = 'CopacoBE/6010_ATP_KWALIFICATIES.CSV'
         internalPath = self.connection.ftpHandler.retrFile(atpListPath)
         pdFile = getFile(internalPath)
