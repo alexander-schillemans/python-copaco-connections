@@ -9,3 +9,4 @@ copaco/temp/*
 !copaco/temp/.silence
 !copaco/temp/__init__.py
 Pipfile.lock
+python_copaco_connections.egg-info/*
