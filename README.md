@@ -5,6 +5,8 @@ Easy python integrations for the Copaco Customer Connections
 
 This package is limited to the Copaco BE - Dutch Productlist in CSV format via FTP. Might be extended in the future.
 
+More info here: https://www.copaco.com/en-be/customer-service-e-commerce-fulfillment
+
 ## Getting started
 
 ### Install
