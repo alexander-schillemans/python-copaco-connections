@@ -11,8 +11,8 @@ PRICELISTITEM_MAPPINGS = {
     'statusCode' : ['status'],
     'auvibel' : ['Auvibel'],
     'reprobel' : ['Reprobel'],
-    'recupel' : ['recupel'],
-    'bebat' : ['bebat']
+    'recupel' : ['Recupel'],
+    'bebat' : ['Bebat']
 }
 
 STOCK_MAPPINGS = {
