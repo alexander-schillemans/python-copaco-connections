@@ -5,4 +5,6 @@ __pycache__/
 copaco/cache/*
 !copaco/cache/__init__.py
 dist/
+copaco/temp/*
+!copaco/temp/.silence
 Pipfile.lock
