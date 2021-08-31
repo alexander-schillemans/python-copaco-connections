@@ -11,10 +11,10 @@ More info here: https://www.copaco.com/en-be/customer-service-e-commerce-fulfill
 
 ### Install
 
-Install with pipenv.
+Install with pip.
 
 ```python
-pipenv install python-copaco-connections
+pip install python-copaco-connections
 ```
 
 ### Import
