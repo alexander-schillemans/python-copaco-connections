@@ -48,27 +48,27 @@ You can find the attributes of this object and their use below:
 
 **PriceListItem object**
 
-| Attribute  | Contains |
-| ------------- | ------------- |
-| article  | Article number  |
-| vendorCode  | Unique vendor code  |
-| description  | Short description  |
-| price  | Price, excluding levies  |
-| priceWithLevies  | Price, including levies |
-| stock  | Amount of stock available  |
-| hierarchy  | Product hierarchy  |
-| unspscCode  | UNSPSC code  |
-| EAN  | EAN code  |
-| statusCode  | Status code (0 - 12). Refer to docs.  |
-| status  | Human-readable status  |
-| auvibel  | Price of Auvibel  |
-| reprobel  | Price of Reprobel  |
-| recupel  | Price of Recupel  |
-| bebat  | Price of Bebat  |
-| nextDelivery  | Next delivery date of this product |
-| nextDeliveryAmount  | Amount that will be delivered on next delivery |
-| inventoryStatusCode  | ATP code |
-| inventoryStatus  | Human-readable ATP code |
+| Attribute  | Contains | Type |
+| ------------- | ------------- |-------------|
+| article  | Article number  | string |
+| vendorCode  | Unique vendor code  | string |
+| description  | Short description  | string |
+| price  | Price, excluding levies  | float |
+| priceWithLevies  | Price, including levies | float |
+| stock  | Amount of stock available  | integer |
+| hierarchy  | Product hierarchy  | string |
+| unspscCode  | UNSPSC code  | string |
+| EAN  | EAN code  | string |
+| statusCode  | Status code (0 - 12). Refer to docs.  | integer |
+| status  | Human-readable status  | string |
+| auvibel  | Price of Auvibel  | float |
+| reprobel  | Price of Reprobel  | float |
+| recupel  | Price of Recupel  | float |
+| bebat  | Price of Bebat  | float |
+| nextDelivery  | Next delivery date of this product | date |
+| nextDeliveryAmount  | Amount that will be delivered on next delivery | integer |
+| inventoryStatusCode  | ATP code | string |
+| inventoryStatus  | Human-readable ATP code | string |
 
 
 ## Sample script
