@@ -1,6 +1,6 @@
-from copaco.orders import CopacoOrdersBE
+from copaco.orders import CopacoOrders
 
-orders = CopacoOrdersBE('XXXX', 'XXXX')
+orders = CopacoOrders('XXXX', 'XXXX')
 
 order = orders.create('Abcdef', 'COPACO', 'Order 12345', 'N')
 order.setShippingAdress('Alexander', 'TEST', 'Straat', '2000', 'Antwerpen', 'BE')

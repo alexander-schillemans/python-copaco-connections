@@ -6,7 +6,7 @@ from .models.order import *
 from .constants.errors import FailedRequest
 from .utils import removeFile
 
-class CopacoOrdersBE:
+class CopacoOrders:
 
     def __init__(self, customerId, senderId):
 
