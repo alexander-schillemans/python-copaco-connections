@@ -22,6 +22,7 @@ setup(
   install_requires=[
           'requests',
           'pandas',
+          'xmltodict'
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',
