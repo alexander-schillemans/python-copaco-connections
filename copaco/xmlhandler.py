@@ -1,8 +1,6 @@
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-from .constants.errors import NotFoundError
-
 class XMLHandler:
 
     def __init__(self):
@@ -42,7 +40,19 @@ class XMLHandler:
                 parentElement.text = v1['value']
         
         return parentElement
+    
+    def writeToFile(self, filename, xml):
+        """ 
+            Takes a filename and an ElementTree object, writes the XML to the specified file inside the temp folder 
+            Returns the path to the created file
 
-            
+            :param filename: the filename to be used, including extension
+            :param xml: the ElementTree object that will be used to generate the file
+            :return: returns the path to the created XML file
+        """
+        
+        path = '{tempDir}/{filename}'.format(tempDir=self.tempDir, filename=filename)
+        tree = ET.ElementTree(xml)
+        tree.write(path)
 
-
+        return path

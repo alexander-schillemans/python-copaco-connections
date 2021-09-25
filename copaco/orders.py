@@ -1,7 +1,10 @@
+import datetime
+import requests
+
 from .xmlhandler import XMLHandler
 from .models.order import *
-import datetime
-import xml.etree.ElementTree as ET
+from .constants.errors import FailedRequest
+from .utils import removeFile
 
 class CopacoOrdersBE:
 
@@ -11,6 +14,9 @@ class CopacoOrdersBE:
         self.customerId = customerId
         self.method = 'HTTP'
         self.xmlHandler = XMLHandler()
+
+        self.testURL = 'https://connect.copaco.com/xmlorder-test'
+        self.URL = 'https://connect.copaco.com/xmlorder'
     
     def create(self,
         external_document_id,
@@ -39,16 +45,19 @@ class CopacoOrdersBE:
         return order
     
     def sendToCopaco(self, order):
-        ''' Takes an Order object, generates XML file and sends the file to Copaco '''
+        ''' 
+            Takes an Order object, generates XML file and sends the file to Copaco
+            Deletes the file in the temp folder afterwards to save space
+            Returns True if HTTP 200 is received, raises FailedRequest with response content otherwise
+        '''
         
         json = order.getJSON()
-        # print(json)
         xml = self.xmlHandler.parseJSON(json)
-        tree = ET.ElementTree(xml)
-        tree.write("test.xml")
-    
 
+        filePath = self.xmlHandler.writeToFile('test.xml', xml)
+        with open(filePath, 'rb') as f: data = f.read()
+        removeFile(filePath)
 
-
-
-
+        response = requests.post(self.testURL, data=data)
+        if response.status_code == 200: return True
+        else: raise FailedRequest(response.content)

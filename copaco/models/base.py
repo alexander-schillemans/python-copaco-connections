@@ -1,5 +1,3 @@
-import xml.etree.ElementTree as ET
-
 #==============[HELPER FUNCTIONS]=================#
 
 def getIndexWithValue(list, attribute, value):

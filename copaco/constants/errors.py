@@ -3,3 +3,6 @@ class NotFoundError(ValueError):
 
 class NoMethodFound(ValueError):
     ''' raise this when no method is found for your logic'''
+
+class FailedRequest(RuntimeError):
+    ''' raise this when a request to a copaco endpoint has failed '''
