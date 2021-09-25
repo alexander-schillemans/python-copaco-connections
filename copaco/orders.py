@@ -1,8 +1,11 @@
 import datetime
 import requests
+import xmltodict
+from typing_extensions import OrderedDict
 
 from .xmlhandler import XMLHandler
 from .models.order import *
+from .models.responses import *
 from .constants.errors import FailedRequest
 from .utils import removeFile
 
@@ -15,8 +18,11 @@ class CopacoOrders:
         self.method = 'HTTP'
         self.xmlHandler = XMLHandler()
 
-        self.testURL = 'https://connect.copaco.com/xmlorder-test'
-        self.URL = 'https://connect.copaco.com/xmlorder'
+        self.testRequestUrl = 'https://connect.copaco.com/xmlorder-test'
+        self.requestUrl = 'https://connect.copaco.com/xmlorder'
+
+        self.testResponseUrl = 'http://connect.copaco.com/xmlresponses-test'
+        self.responseUrl = 'http://connect.copaco.com/xmlresponses'
     
     def create(self,
         external_document_id,
@@ -58,6 +64,71 @@ class CopacoOrders:
         with open(filePath, 'rb') as f: data = f.read()
         removeFile(filePath)
 
-        response = requests.post(self.testURL, data=data)
+        response = requests.post(self.testRequestUrl, data=data)
         if response.status_code == 200: return True
         else: raise FailedRequest(response.content)
+    
+
+    def getResponses(self, distributor='6010', type='ALL'):
+        '''
+            Retrieves the responses from Copaco and parses the given XML
+
+            :param distributor: the distributor code (6010 = Copaco BE, COPACO = Copaco NL). Default is Copaco BE.
+            :param type: the type of response to fetch (INT, OBV, FAC, PAK). Default is ALL.
+            :return: an array of all the responses if type is ALL, array of a specified type if type is not ALL
+        '''
+
+        respTypes = {
+            'orderresponse' : {
+                'list' : [],
+                'object' : OrderResponse,
+            },
+            'orderconfirmation' : {
+                'list' : [],
+                'object' : OrderConfirmation,
+            },
+            'invoice' : {
+                'list' : [],
+                'object' : OrderResponse, # TO DO: change to corresponding object
+            },
+            'dispatchadvice' : {
+                'list' : [],
+                'object' : OrderResponse, # TO DO: change to corresponding object
+            }
+        }
+
+        url = '{respUrl}/?distributor_id={distributor}&customer_id={customer_id}&sender_id={sender_id}&type={type}'.format(respUrl=self.testResponseUrl, distributor=distributor, customer_id=self.customerId, sender_id=self.senderId, type=type)
+        
+        response = requests.get(url)
+        if response.status_code == 200: data = response.content
+        else: raise FailedRequest(response.content)
+
+        # with open('responses/confirmation.xml', 'r') as f: data = f.read()
+
+        dikt = xmltodict.parse(data)
+        orderresponses = dikt['orderresponses']
+
+        for key, value in respTypes.items():
+            list = value['list']
+            object = value['object']
+            responses = orderresponses[key] if key in orderresponses else None
+
+            if responses:
+                if isinstance(responses, OrderedDict): responses = [responses]
+
+                for resp in responses:
+                    obj = object().parseJSON(resp)
+                    list.append(obj)
+
+        return {
+            'INT' : respTypes['orderresponse']['list'],
+            'OBV' : respTypes['orderconfirmation']['list'],
+            'FAC' : respTypes['invoice']['list'],
+            'PAK' : respTypes['dispatchadvice']['list'],
+            'ALL' : [
+                respTypes['orderresponse']['list'], 
+                respTypes['orderconfirmation']['list'],
+                respTypes['invoice']['list'],
+                respTypes['dispatchadvice']['list']
+            ]
+        }[type]

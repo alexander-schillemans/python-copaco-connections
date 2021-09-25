@@ -1,5 +1,7 @@
-#==============[HELPER FUNCTIONS]=================#
+import importlib
+from typing_extensions import OrderedDict
 
+#==============[HELPER FUNCTIONS]=================#
 def getIndexWithValue(list, attribute, value):
 
     for index, obj in enumerate(list):
@@ -18,7 +20,42 @@ def getObjectWithValue(list, attribute, value):
     
     return None
 
+def formatKey(key):
+    key = key.replace('@', '')
+    key = key.replace('-', '')
+    return key
+
 #==============[BASE MODELS]=================#
+
+class BaseResponse:
+
+    def parseJSON(self, json):
+        import copaco.models.responses as responses
+        CLASS_MAPPINGS = { 
+            'VAT' : responses.VATObj,
+            'costs' : responses.Costs,
+            'orderline' : responses.OrderLine
+        }
+
+        for key, value in json.items():
+            key = formatKey(key)
+            attrVal = getattr(self, key)
+
+            if isinstance(attrVal, BaseResponse):
+                setattr(self, key, attrVal.parseJSON(value))
+            elif isinstance(attrVal, list):
+                classObj = CLASS_MAPPINGS[key]
+                if isinstance(value, list):
+                    for v in value:
+                        attrVal.append(classObj().parseJSON(v))
+                else:
+                    attrVal.append(classObj().parseJSON(value))
+            else:
+                if isinstance(value, OrderedDict):
+                    value = value['#text']
+                setattr(self, key, value)
+        
+        return self
 
 class BaseModel:
     

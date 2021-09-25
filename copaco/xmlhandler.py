@@ -48,7 +48,7 @@ class XMLHandler:
 
             :param filename: the filename to be used, including extension
             :param xml: the ElementTree object that will be used to generate the file
-            :return: returns the path to the created XML file
+            :return: the path to the created XML file
         """
         
         path = '{tempDir}/{filename}'.format(tempDir=self.tempDir, filename=filename)
