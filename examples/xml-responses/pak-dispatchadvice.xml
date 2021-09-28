@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE orderresponses SYSTEM "http://www.copaco.nl/dtd/orderresponses.dtd">
+<orderresponses>
+  <dispatchadvice route="DHL Express">
+    <dispatchheader>
+      <supplier>COPACO</supplier>
+      <dispatchnumber>0280001157</dispatchnumber>
+      <dispatchdate>20150219</dispatchdate>
+    </dispatchheader>
+    <Customer>
+      <customer_id>0000000012</customer_id>
+      <customercontact e-mail="" telephone="040-1234567" fax=""/>
+    </Customer>
+    <ShipTo>
+      <name1>Mr. D. Emo</name1>
+      <name2>Second level floor</name2>
+      <name3/>
+      <name4/>
+      <street>Testally 104</street>
+      <postalcode>1234 XY</postalcode>
+      <city>Eindhoven</city>
+      <country>NL</country>
+    </ShipTo>
+    <dispatchline dispatchlinenumber="000010">
+      <item>
+        <item_id>TAR-CN313</item_id>
+        <customer_item_id/>
+        <manufacturer_item_id>CN313</manufacturer_item_id>
+        <quantity unit="ST">2</quantity>
+        <item_description>Classic 12-13.4i C/Shell Blk</item_description>
+      </item>
+      <serial_numbers>
+        <serialnumber>ABCD12345</serialnumber>
+        <serialnumber>ABCD98765</serialnumber>
+      </serial_numbers>
+      <tracking_numbers>
+        <tracking_carrier>DPD</tracking_carrier>
+        <tracking_number>00000005118018400968</tracking_number>
+      </tracking_numbers>
+      <tracking_numbers>
+        <tracking_carrier>DPD</tracking_carrier>
+        <tracking_number>00000005118018400968</tracking_number>
+      </tracking_numbers>
+      <order>
+        <ordernumber>0012712921</ordernumber>
+        <linenumber>000100</linenumber>
+        <orderdate>20150216</orderdate>
+      </order>
+      <customerorder recipientsreference="Reference recipient">
+        <customer_ordernumber>Demo Dispatch</customer_ordernumber>
+        <customer_linenumber/>
+        <document_id/>
+      </customerorder>
+    </dispatchline>
+    <dispatchline dispatchlinenumber="000020">
+      <item>
+        <item_id>TAR-CN317</item_id>
+        <customer_item_id/>
+        <manufacturer_item_id>CN317</manufacturer_item_id>
+        <quantity unit="ST">2</quantity>
+        <item_description>Classic 17-18i C/Shell Blk</item_description>
+      </item>
+      <serial_numbers>
+        <serialnumber>XYZ12345</serialnumber>
+        <serialnumber>XYZ98765</serialnumber>
+      </serial_numbers>
+      <tracking_numbers>
+        <tracking_carrier>DPD</tracking_carrier>
+        <tracking_number>00000005118018400968</tracking_number>
+      </tracking_numbers>
+      <tracking_numbers>
+        <tracking_carrier>DPD</tracking_carrier>
+        <tracking_number>00000005118018400968</tracking_number>
+      </tracking_numbers>
+      <order>
+        <ordernumber>0012712921</ordernumber>
+        <linenumber>000200</linenumber>
+        <orderdate>20150216</orderdate>
+      </order>
+      <customerorder recipientsreference="Reference recipient">
+        <customer_ordernumber>Demo Dispatch</customer_ordernumber>
+        <customer_linenumber/>
+        <document_id/>
+      </customerorder>
+    </dispatchline>
+    <dispatchtrailer>
+      <total_number_of_units>4</total_number_of_units>
+    </dispatchtrailer>
+  </dispatchadvice>
+</orderresponses>

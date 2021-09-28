@@ -467,11 +467,13 @@ class InvoiceOrder(BaseResponse):
 class CustomerOrder(BaseResponse):
      
      def __init__(self,
+        recipientsreference=None,
         customer_ordernumber=None,
         customer_linenumber=None,
         document_id=None
      ):
 
+        self.recipientsreference = recipientsreference
         self.customer_ordernumber = customer_ordernumber
         self.customer_linenumber = customer_linenumber
         self.document_id = document_id
@@ -596,3 +598,99 @@ class TotalVATObj(BaseResponse):
         self.amount = amount
         self.vatcode = vatcode
         self.vatbase = vatbase
+
+
+# PAK
+class DispatchAdvice(BaseResponse):
+
+    def __init__(self,
+        route=None,
+        dispatchheader=None,
+        Customer=None,
+        ShipTo=None,
+        dispatchline=None,
+        dispatchtrailer=None
+    ):
+
+        self.route = route
+        self.dispatchheader = dispatchheader if dispatchheader else DispatchHeader()
+        self.Customer = Customer if Customer else CustomerObj()
+        self.ShipTo = ShipTo if ShipTo else ShipToObj()
+        self.dispatchline = dispatchline if dispatchline else []
+        self.dispatchtrailer = dispatchtrailer if dispatchtrailer else DispatchTrailer()
+
+class DispatchHeader(BaseResponse):
+
+    def __init__(self,
+        supplier=None,
+        dispatchnumber=None,
+        dispatchdate=None
+    ):
+
+        self.supplier = supplier
+        self.dispatchnumber = dispatchnumber
+        self.dispatchdate = dispatchdate
+
+class DispatchLine(BaseResponse):
+
+    def __init__(self,
+        dispatchlinenumber=None,
+        item=None,
+        serial_numbers=None,
+        tracking_numbers=None,
+        order=None,
+        customerorder=None
+    ):
+
+        self.dispatchlinenumber = dispatchlinenumber
+        self.item = item if item else Item()
+        self.serial_numbers = serial_numbers if serial_numbers else SerialNumbers()
+        self.tracking_numbers = tracking_numbers if tracking_numbers else []
+        self.order = order if order else Order()
+        self.customerorder = customerorder if customerorder else CustomerOrder()
+
+class Item(BaseResponse):
+
+    def __init__(self,
+        item_id=None,
+        customer_item_id=None,
+        manufacturer_item_id=None,
+        quantity=None,
+        item_description=None
+    ):
+
+        self.item_id = item_id
+        self.customer_item_id = customer_item_id
+        self.manufacturer_item_id = manufacturer_item_id
+        self.quantity = quantity
+        self.item_description = item_description
+
+class TrackingNumbers(BaseResponse):
+
+    def __init__(self,
+        tracking_carrier=None,
+        tracking_number=None
+    ):
+
+        self.tracking_carrier = tracking_carrier
+        self.tracking_number = tracking_number
+
+class Order(BaseResponse):
+
+    def __init__(self,
+        ordernumber=None,
+        linenumber=None,
+        orderdate=None
+    ):
+
+        self.ordernumber = ordernumber
+        self.linenumber = linenumber
+        self.orderdate = orderdate
+
+class DispatchTrailer(BaseResponse):
+
+    def __init__(self,
+        total_number_of_units=None
+    ):
+
+        self.total_number_of_units = total_number_of_units

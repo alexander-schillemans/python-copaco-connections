@@ -38,8 +38,11 @@ class BaseResponse:
             'item_vat' : responses.ItemVAT,
             'item_costs' : responses.ItemCosts,
             'serialnumbers' : responses.SerialNumbers,
+            'serial_numbers' : responses.SerialNumbers,
             'invoiceline' : responses.InvoiceLine,
-            'costsVAT' : responses.CostsVAT
+            'costsVAT' : responses.CostsVAT,
+            'tracking_numbers' : responses.TrackingNumbers,
+            'dispatchline' : responses.DispatchLine
         }
 
         for key, value in json.items():
