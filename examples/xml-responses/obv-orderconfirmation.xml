@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orderresponses>
+    <orderconfirmation documentsource="order_in" external_document_id="" supplier="COPACO" document_date="16-
+    02-2015">
+        <orderheader customer_ordernumber="Demo orderresponse" order_number="0012712921" 
+        sequencenumber="1" orderdate="16-02-2015" completedelivery="" currency="EUR" 
+        terms_of_payment_text="Betaling binnen 30 dagen netto" incoterms_text="Levering af fabriek" 
+        recipientsreference="Reference recipient"/>
+        <Customer>
+            <customer_id>0000000012</customer_id>
+            <customercontact e-mail="" telephone="040-1234567" fax=""/>
+        </Customer>
+        <ShipTo>
+            <name1>Mr. D. Emo</name1>
+            <name2>Second level floor</name2>
+            <name3/>
+            <name4/>
+            <street>Testally 104</street>
+            <postalcode>1234 XY</postalcode>
+            <city>Eindhoven</city>
+            <country>NL</country>
+        </ShipTo>
+        <VAT>
+            <percentage>21.000</percentage>
+            <amount currency="EUR">24.44</amount>
+        </VAT>
+        <costs>
+            <sign>+</sign>
+            <code>ZVTR</code>
+            <description>Dropshipmentkosten</description>
+            <amount currency="EUR">9.40</amount>
+        </costs>
+        <costs>
+            <sign>+</sign>
+            <code>ZHND</code>
+            <description>Handlingkosten</description>
+            <amount currency="EUR">11.00</amount>
+        </costs>
+        <costs>
+            <sign>+</sign>
+            <code>ZORD</code>
+            <description>Orderkosten</description>
+            <amount currency="EUR">11.00</amount>
+        </costs>
+        <costs>
+            <sign>+</sign>
+            <code>ZBB3</code>
+            <description>Recupel/Verw.bijdr.</description>
+            <amount currency="EUR">9.36</amount>
+        </costs>
+        <costs>
+            <sign>+</sign>
+            <code>ZBB4</code>
+            <description>Bebat/Stibat</description>
+            <amount currency="EUR">4.68</amount>
+        </costs>
+
+        <orderline linenumber="000100" customer_linenumber="" item_id="TAR-CN313" item_description="Classic 
+        12-13.4i C/Shell Blk" manufacturer_item_id="CN313" first_requested_deliverydate="20150217" 
+        price="22.27" line_amount="44.54" currency="EUR" quantity_ordered="2.000">
+            <schedulelines>
+                <quantity unit="ST">2.000</quantity>
+                <atp_code>010</atp_code>
+                <atp_date>20150216</atp_date>
+            </schedulelines>
+        </orderline>
+
+        <orderline linenumber="000200" customer_linenumber="" item_id="TAR-CN317" item_description="Classic 
+        17-18i C/Shell Blk" manufacturer_item_id="CN317" first_requested_deliverydate="20150217" 
+        price="35.91" line_amount="71.82" currency="EUR" quantity_ordered="2.000">
+            <schedulelines>
+                <quantity unit="ST">2.000</quantity>
+                <atp_code>010</atp_code>
+                <atp_date>20150216</atp_date>
+            </schedulelines>
+        </orderline>
+        <ordertrailer>
+            <order_amount_ex_VAT currency="EUR">116.36</order_amount_ex_VAT>
+            <order_VAT_amount currency="EUR">24.44</order_VAT_amount>
+            <order_amount_incl_VAT currency="EUR">140.80</order_amount_incl_VAT>
+        </ordertrailer>
+    </orderconfirmation>
+</orderresponses>

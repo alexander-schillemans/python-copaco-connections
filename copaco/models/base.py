@@ -34,7 +34,12 @@ class BaseResponse:
         CLASS_MAPPINGS = { 
             'VAT' : responses.VATObj,
             'costs' : responses.Costs,
-            'orderline' : responses.OrderLine
+            'orderline' : responses.OrderLine,
+            'item_vat' : responses.ItemVAT,
+            'item_costs' : responses.ItemCosts,
+            'serialnumbers' : responses.SerialNumbers,
+            'invoiceline' : responses.InvoiceLine,
+            'costsVAT' : responses.CostsVAT
         }
 
         for key, value in json.items():

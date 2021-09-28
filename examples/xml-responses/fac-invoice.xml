@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE orderresponses SYSTEM "http://www.copaco.nl/dtd/orderresponses.dtd">
+<orderresponses>
+  <invoice>
+    <invoiceheader documentsource="" invoice_type="INVO" supplier="COPACO" document_date="20150219" supplier_vat_number="NL006486253B01" koers="1.00000" TermsOfPaymentCoded="Z004" TermsOfPaymentDays="14" TermsOfPaymentPercentage="0">
+      <invoice_number>0006965423</invoice_number>
+      <invoice_date>20150219</invoice_date>
+      <invoice_expiration_date>20150302</invoice_expiration_date>
+      <invoice_currency>EUR</invoice_currency>
+      <invoice_terms_of_payment_text>Betaling binnen 30 dagen netto</invoice_terms_of_payment_text>
+      <invoice_terms_of_delivery>Levering af fabriek</invoice_terms_of_delivery>
+    </invoiceheader>
+    <InvoiceSender>
+      <name>Copaco Nederland B.V.</name>
+      <address>Hoevenweg 21</address>
+      <postalcode>5652 AW</postalcode>
+      <city>Eindhoven</city>
+      <PObox>7905</PObox>
+      <Postalcode_PObox>5605 SH</Postalcode_PObox>
+      <city_PObox>Eindhoven</city_PObox>
+      <country>NEDERLAND</country>
+      <Telephone>040-2 306 306</Telephone>
+      <Fax>040-2 306 300</Fax>
+      <BankAccount>012.45.78.369</BankAccount>
+      <IBAN>NL08 BANK 0124 5783 69</IBAN>
+      <BIC>BANKNL9X</BIC>
+      <VATnumber>NL0098.65.321.Z.74</VATnumber>
+      <Website>www.copaco.com</Website>
+      <ChamberOfCommerce>19283746</ChamberOfCommerce>
+    </InvoiceSender>
+    <BillTo>
+      <BillToNumber>000000012</BillToNumber>
+      <BillToName>Demo Customer B.V.</BillToName>
+      <BillToName2/>
+      <BillToName3/>
+      <BillToName4/>
+      <BillToStreet>Demostreet 70</BillToStreet>
+      <BillToZip_city>9876 AB EINDHOVEN</BillToZip_city>
+      <BillToPobox>9800</BillToPobox>
+      <BillToPo_city>9800 KL EINDHOVEN</BillToPo_city>
+      <BillTocontact e-mail="" telephone="040-9876543" fax="">Demo Customer B.V.</BillTocontact>
+      <BillToVat_number>NL001234567B01</BillToVat_number>
+      <BillToCountry>NL</BillToCountry>
+      <BillToCountryName>NEDERLAND</BillToCountryName>
+    </BillTo>
+    <invoicecustomer>
+      <customer_id>0000000012</customer_id>
+      <customer_name1>Demo Customer B.V.</customer_name1>
+      <customer_name2/>
+      <customer_name3/>
+      <customer_name4/>
+      <customer_street>Demostreet 70</customer_street>
+      <customer_zip_city>9876 AB EINDHOVEN</customer_zip_city>
+      <customer_pobox>9800</customer_pobox>
+      <customer_country>NL</customer_country>
+      <customercontact e-mail="" telephone="040-9876543" fax="">Demo Customer B.V.</customercontact>
+      <customer_vat_number>NL001234567B01</customer_vat_number>
+      <customer_countryname>NEDERLAND</customer_countryname>
+    </invoicecustomer>
+    <InvoicePayer>
+      <addresscode>0000000012</addresscode>
+      <name1>Demo Customer B.V.</name1>
+      <name2/>
+      <name3/>
+      <name4/>
+      <street>Demostreet 70</street>
+      <postalcode>9876 AB</postalcode>
+      <city>EINDHOVEN</city>
+      <country>NL</country>
+    </InvoicePayer>
+    <invoiceline invoicelinenumber="000100" part_of_linenumber="">
+      <invoiceorder>
+        <ordernumber>0012712921</ordernumber>
+        <ShipTo>
+          <name1>Mr. D. Emo</name1>
+          <name2>Second level floor</name2>
+          <name3/>
+          <name4/>
+          <street>Testally 12</street>
+          <postalcode>1234 AB</postalcode>
+          <city>Eindhoven</city>
+          <country>NL</country>
+        </ShipTo>
+        <linenumber>000100</linenumber>
+        <orderdate>20150216</orderdate>
+        <dispatchnumber>0280001157</dispatchnumber>
+        <dispatchlinenumber>000010</dispatchlinenumber>
+        <dispatchdate>20150219</dispatchdate>
+      </invoiceorder>
+      <customerorder>
+        <customer_ordernumber>Demo invoice</customer_ordernumber>
+        <customer_linenumber/>
+        <document_id/>
+      </customerorder>
+      <invoice_item>
+        <item_id>TAR-CN313</item_id>
+        <customer_item_id/>
+        <manufacturer_item_id>CN313</manufacturer_item_id>
+        <quantity_ordered/>
+        <item_description>Classic 12-13.4i C/Shell Blk</item_description>
+        <price currency="EUR">12.96</price>
+        <discount_percentage>0</discount_percentage>
+        <net_price currency="EUR">12.96</net_price>
+        <quantity_invoiced unit="ST">2.000</quantity_invoiced>
+        <line_amount currency="EUR">25.92</line_amount>
+        <item_vat>
+          <percentage>21.000</percentage>
+          <amount currency="EUR">5.44</amount>
+          <vatcode>A4</vatcode>
+          <vatbase>25.92</vatbase>
+        </item_vat>
+        <item_costs>
+          <ItemCostSign>+</ItemCostSign>
+          <ItemCostCode>ZBB3</ItemCostCode>
+          <ItemCostDescription>Recupel/Verw.bijdr.</ItemCostDescription>
+          <ItemCostPrice>1.23</ItemCostPrice>
+          <ItemCostAmount>2.46</ItemCostAmount>
+          <ItemCostQuantity>2</ItemCostQuantity>
+          <ItemCostVATPercentage>21.000</ItemCostVATPercentage>
+          <ItemCostVATcode>A4</ItemCostVATcode>
+          <ItemCostVATamount>0.52</ItemCostVATamount>
+          <ItemCostVatBase>2.46</ItemCostVatBase>
+        </item_costs>
+        <item_costs>
+          <ItemCostSign>+</ItemCostSign>
+          <ItemCostCode>ZBB4</ItemCostCode>
+          <ItemCostDescription>Bebat/Stibat</ItemCostDescription>
+          <ItemCostPrice>2.34</ItemCostPrice>
+          <ItemCostAmount>4.68</ItemCostAmount>
+          <ItemCostQuantity>2</ItemCostQuantity>
+          <ItemCostVATPercentage>21.000</ItemCostVATPercentage>
+          <ItemCostVATcode>A4</ItemCostVATcode>
+          <ItemCostVATamount>0.98</ItemCostVATamount>
+          <ItemCostVatBase>4.68</ItemCostVatBase>
+        </item_costs>
+        <serialnumbers>
+          <serialnumber>ABCD12345</serialnumber>
+          <serialnumber>ABCD98765</serialnumber>
+        </serialnumbers>
+      </invoice_item>
+    </invoiceline>
+    <invoiceline invoicelinenumber="000200" part_of_linenumber="">
+      <invoiceorder>
+        <ordernumber>0012712921</ordernumber>
+        <ShipTo>
+          <name1>Mr. D. Emo</name1>
+          <name2>Second level floor</name2>
+          <name3/>
+          <name4/>
+          <street>Testally 12</street>
+          <postalcode>1234 AB</postalcode>
+          <city>Eindhoven</city>
+          <country>NL</country>
+        </ShipTo>
+        <linenumber>000200</linenumber>
+        <orderdate>20150216</orderdate>
+        <dispatchnumber>0280001157</dispatchnumber>
+        <dispatchlinenumber>000020</dispatchlinenumber>
+        <dispatchdate>20150219</dispatchdate>
+      </invoiceorder>
+      <invoice_item>
+        <item_id>TAR-CN317</item_id>
+        <customer_item_id/>
+        <manufacturer_item_id>CN317</manufacturer_item_id>
+        <quantity_ordered/>
+        <item_description>Classic 17-18i C/Shell Blk</item_description>
+        <price currency="EUR">22.50</price>
+        <discount_percentage>0</discount_percentage>
+        <net_price currency="EUR">22.50</net_price>
+        <quantity_invoiced unit="ST">2.000</quantity_invoiced>
+        <line_amount currency="EUR">45.00</line_amount>
+        <item_vat>
+          <percentage>21.000</percentage>
+          <amount currency="EUR">9.45</amount>
+          <vatcode>A4</vatcode>
+          <vatbase>45.00</vatbase>
+        </item_vat>
+        <item_costs>
+          <ItemCostSign>+</ItemCostSign>
+          <ItemCostCode>ZBB3</ItemCostCode>
+          <ItemCostDescription>Recupel/Verw.bijdr.</ItemCostDescription>
+          <ItemCostPrice>3.45</ItemCostPrice>
+          <ItemCostAmount>6.90</ItemCostAmount>
+          <ItemCostQuantity>2</ItemCostQuantity>
+          <ItemCostVATPercentage>21.000</ItemCostVATPercentage>
+          <ItemCostVATcode>A4</ItemCostVATcode>
+          <ItemCostVATamount>1.45</ItemCostVATamount>
+          <ItemCostVatBase>6.90</ItemCostVatBase>
+        </item_costs>
+        <serialnumbers>
+          <serialnumber>XYZ12345</serialnumber>
+          <serialnumber>XYZ98765</serialnumber>
+        </serialnumbers>
+      </invoice_item>
+    </invoiceline>
+    <invoicetrailer>
+      <costs>
+        <sign>+</sign>
+        <code>ZBB3</code>
+        <description>Recupel/Verw.bijdr.</description>
+        <amount currency="EUR">9.36</amount>
+        <costsVAT>
+          <VATpercentage>21.000</VATpercentage>
+          <VATcode>A4</VATcode>
+          <VatAmount>1.97</VatAmount>
+          <VatBase>9.360</VatBase>
+        </costsVAT>
+      </costs>
+      <costs>
+        <sign>+</sign>
+        <code>ZBB4</code>
+        <description>Bebat/Stibat</description>
+        <amount currency="EUR">4.68</amount>
+        <costsVAT>
+          <VATpercentage>21.000</VATpercentage>
+          <VATcode>A4</VATcode>
+          <VatAmount>0.98</VatAmount>
+          <VatBase>4.680</VatBase>
+        </costsVAT>
+      </costs>
+      <costs>
+        <sign>+</sign>
+        <code>ZVTR</code>
+        <description>Dropshipmentkosten</description>
+        <amount currency="EUR">9.4</amount>
+        <costsVAT>
+          <VATpercentage>21.000</VATpercentage>
+          <VATcode>A4</VATcode>
+          <VatAmount>1.97</VatAmount>
+          <VatBase>9.40</VatBase>
+        </costsVAT>
+      </costs>
+      <costs>
+        <sign>+</sign>
+        <code>ZHND</code>
+        <description>Handlingkosten</description>
+        <amount currency="EUR">11</amount>
+        <costsVAT>
+          <VATpercentage>21.000</VATpercentage>
+          <VATcode>A4</VATcode>
+          <VatAmount>2.31</VatAmount>
+          <VatBase>11.00</VatBase>
+        </costsVAT>
+      </costs>
+      <costs>
+        <sign>+</sign>
+        <code>ZORD</code>
+        <description>Orderkosten</description>
+        <amount currency="EUR">11</amount>
+        <costsVAT>
+          <VATpercentage>21.000</VATpercentage>
+          <VATcode>A4</VATcode>
+          <VatAmount>2.31</VatAmount>
+          <VatBase>11.00</VatBase>
+        </costsVAT>
+      </costs>
+      <invoice_amount_ex_VAT currency="EUR">116.36</invoice_amount_ex_VAT>
+      <invoice_VAT_amount currency="EUR">24.44</invoice_VAT_amount>
+      <invoice_amount_incl_VAT currency="EUR">140.80</invoice_amount_incl_VAT>
+      <COD_amount/>
+      <VATS>
+        <TotalVAT>
+          <percentage>21.000</percentage>
+          <amount currency="EUR">24.44</amount>
+          <vatcode>A4</vatcode>
+          <vatbase>116.36</vatbase>
+        </TotalVAT>
+      </VATS>
+    </invoicetrailer>
+  </invoice>
+</orderresponses>

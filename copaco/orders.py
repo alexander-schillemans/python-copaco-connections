@@ -89,7 +89,7 @@ class CopacoOrders:
             },
             'invoice' : {
                 'list' : [],
-                'object' : OrderResponse, # TO DO: change to corresponding object
+                'object' : Invoice,
             },
             'dispatchadvice' : {
                 'list' : [],
@@ -97,13 +97,13 @@ class CopacoOrders:
             }
         }
 
-        url = '{respUrl}/?distributor_id={distributor}&customer_id={customer_id}&sender_id={sender_id}&type={type}'.format(respUrl=self.testResponseUrl, distributor=distributor, customer_id=self.customerId, sender_id=self.senderId, type=type)
+        # url = '{respUrl}/?distributor_id={distributor}&customer_id={customer_id}&sender_id={sender_id}&type={type}'.format(respUrl=self.testResponseUrl, distributor=distributor, customer_id=self.customerId, sender_id=self.senderId, type=type)
         
-        response = requests.get(url)
-        if response.status_code == 200: data = response.content
-        else: raise FailedRequest(response.content)
+        # response = requests.get(url)
+        # if response.status_code == 200: data = response.content
+        # else: raise FailedRequest(response.content)
 
-        # with open('responses/confirmation.xml', 'r') as f: data = f.read()
+        with open('responses/fac-invoice.xml', 'r') as f: data = f.read()
 
         dikt = xmltodict.parse(data)
         orderresponses = dikt['orderresponses']

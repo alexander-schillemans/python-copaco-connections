@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<orderresponses>
+    <orderresponse>
+        <supplier>COPACO</supplier> 
+        <customer>12</customer> 
+        <customer_ordernumber>Order 12345</customer_ordernumber> 
+        <external_document_id>Abcdef</external_document_id> 
+        <sequencenumber>1</sequencenumber> 
+        <document_source>HTTP</document_source>
+        <responsecode>0</responsecode> 
+        <ordernumber>0010270228</ordernumber>
+    </orderresponse>
+    <orderresponse>
+        <supplier>6010</supplier> 
+        <customer>12</customer> 
+        <customer_ordernumber>Order 12345</customer_ordernumber> 
+        <external_document_id>Abcdef</external_document_id> 
+        <sequencenumber>1</sequencenumber> 
+        <document_source>HTTP</document_source>
+        <responsecode>98</responsecode> 
+        <ordernumber>0010270228</ordernumber>
+    </orderresponse>
+</orderresponses>
