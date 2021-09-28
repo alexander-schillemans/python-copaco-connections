@@ -117,7 +117,7 @@ orders = CopacoOrders(CUSTOMER_ID, SENDER_ID)
 
 ### Create a new order
 
-Before creating a order you have to understand that creating an order does not equal sending the order to Copaco for processing.
+Before creating an order you have to understand that creating an order does not equal sending the order to Copaco for processing.
 You need to create the order internally first, and then send the order over to Copaco.
 
 ```python
@@ -149,6 +149,7 @@ order.addOrderLine(item_id, tag, quantity, price=None, currency=None, deliveryda
 | ------------- | ------------- |-------------|-------------|-------------|
 | item_id  | X  | string | Free text field | Contains the part number |
 | tag  | X  | string | 'PN'/'MF'/'CU' | 'PN' = Supplier part number, 'MF' = Manufacturer part number, 'CU' = Customer part number |
+| quantity  | X  | integer | integer | Only full numbers allowed |
 | price  |  | float | float | Must match with the price in ERP system or within agreed margins |
 | currency  |  | string | 'EUR' | At this moment only 'EUR' is allowed, might be extended later |
 | deliverydate  |  | string | 'DD-MM-YYYY' | Date you would like the line to be delivered. Overrules delivery date on the order. |
@@ -167,10 +168,19 @@ order.setShippingAdress(firstname, lastname, street, postalcode, city, country)
 
 Country has to be the country code.
 
+### Send order to Copaco
+
+Once the full order has been created, you can send the order to Copaco for processing.
+
+```python
+orders = CopacoOrders(CUSTOMER_ID, SENDER_ID)
+order = orders.create(external_document_id, supplier, customer_ordernumber, completedelivery)
+orders.sendToCopaco(order)
+```
+
 ### Sample script
 
 You can find a sample script at examples/create-order.py
-
 
 
 ## Order responses
@@ -239,4 +249,5 @@ Refer to the XML documentation to know the structure.
 ### Sample script
 
 You can find example responses for each type at examples/xml-responses
+
 You can find a sample script for each response at examples/get-response-XXX.py where XXX is the type.
