@@ -68,6 +68,11 @@ class OrderConfirmation(BaseResponse):
         self.orderline = orderline if orderline else []
         self.ordertrailer = ordertrailer if ordertrailer else OrderTrailer()
 
+    def parseJSON(self, json):
+        self = super().parseJSON(json)
+        self.document_date = datetime.datetime.strptime(self.document_date, '%d-%M-%Y').date()
+        return self    
+
 class VATObj(BaseResponse):
 
     def __init__(self,
@@ -139,6 +144,11 @@ class OrderHeader(BaseResponse):
         self.terms_of_payment_text = terms_of_payment_text
         self.incoterms_text = incoterms_text
         self.recipientsreference = recipientsreference
+    
+    def parseJSON(self, json):
+        self = super().parseJSON(json)
+        self.orderdate = datetime.datetime.strptime(self.orderdate, '%d-%M-%Y').date()
+        return self  
 
 class CustomerObj(BaseResponse):
 
@@ -301,6 +311,14 @@ class InvoiceHeader(BaseResponse):
         self.invoice_terms_of_payment_text = invoice_terms_of_payment_text
         self.invoice_terms_of_delivery = invoice_terms_of_delivery
 
+
+    def parseJSON(self, json):
+        self = super().parseJSON(json)
+        self.document_date = datetime.datetime.strptime(self.document_date, '%Y%M%d').date()
+        self.invoice_date = datetime.datetime.strptime(self.invoice_date, '%Y%M%d').date()
+        self.invoice_expiration_date = datetime.datetime.strptime(self.invoice_expiration_date, '%Y%M%d').date()
+        return self
+    
 class InvoiceSenderObj(BaseResponse):
 
     def __init__(self,
@@ -463,6 +481,12 @@ class InvoiceOrder(BaseResponse):
         self.dispatchnumber = dispatchnumber
         self.dispatchlinenumber = dispatchlinenumber
         self.dispatchdate = dispatchdate
+
+    def parseJSON(self, json):
+        self = super().parseJSON(json)
+        self.orderdate = datetime.datetime.strptime(self.orderdate, '%Y%M%d').date()
+        self.dispatchdate = datetime.datetime.strptime(self.dispatchdate, '%Y%M%d').date()
+        return self
 
 class CustomerOrder(BaseResponse):
      
@@ -631,6 +655,11 @@ class DispatchHeader(BaseResponse):
         self.dispatchnumber = dispatchnumber
         self.dispatchdate = dispatchdate
 
+    def parseJSON(self, json):
+        self = super().parseJSON(json)
+        self.dispatchdate = datetime.datetime.strptime(self.dispatchdate, '%Y%M%d').date()
+        return self
+
 class DispatchLine(BaseResponse):
 
     def __init__(self,
@@ -686,6 +715,11 @@ class Order(BaseResponse):
         self.ordernumber = ordernumber
         self.linenumber = linenumber
         self.orderdate = orderdate
+
+    def parseJSON(self, json):
+        self = super().parseJSON(json)
+        self.orderdate = datetime.datetime.strptime(self.orderdate, '%Y%M%d').date()
+        return self
 
 class DispatchTrailer(BaseResponse):
 
