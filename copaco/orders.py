@@ -126,10 +126,10 @@ class CopacoOrders:
             'OBV' : respTypes['orderconfirmation']['list'],
             'FAC' : respTypes['invoice']['list'],
             'PAK' : respTypes['dispatchadvice']['list'],
-            'ALL' : [
-                respTypes['orderresponse']['list'], 
-                respTypes['orderconfirmation']['list'],
-                respTypes['invoice']['list'],
-                respTypes['dispatchadvice']['list']
-            ]
+            'ALL' : {
+                'INT' : respTypes['orderresponse']['list'], 
+                'OBV' : respTypes['orderconfirmation']['list'],
+                'FAC' : respTypes['invoice']['list'],
+                'PAK' : respTypes['dispatchadvice']['list']
+            }
         }[type]
