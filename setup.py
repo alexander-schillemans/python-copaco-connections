@@ -9,7 +9,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
   name = 'python-copaco-connections',         
   packages=['copaco', 'copaco.models', 'copaco.constants', 'copaco.types', 'copaco.temp'],
-  version = '0.1.2',
+  version = '1.0.0',
   license='GPL-3.0-or-later',
   description = 'Easy python integrations for the Copaco Customer Connections',
   long_description=long_description,
@@ -17,7 +17,7 @@ setup(
   author = 'Alexander Schillemans',
   author_email = 'alexander.schillemans@lhs.global',
   url = 'https://github.com/alexanderlhsglobal/python-copaco-connections',
-  download_url = 'https://github.com/alexanderlhsglobal/python-copaco-connections/archive/refs/tags/0.1.2.tar.gz',
+  download_url = 'https://github.com/alexanderlhsglobal/python-copaco-connections/archive/refs/tags/1.0.0.tar.gz',
   keywords = ['copaco', 'api', 'customer connections'],
   install_requires=[
           'requests',
