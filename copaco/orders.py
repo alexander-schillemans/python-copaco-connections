@@ -4,25 +4,30 @@ import xmltodict
 from typing_extensions import OrderedDict
 
 from .xmlhandler import XMLHandler
-from .models.order import *
-from .models.responses import *
+from .models import order as ordermodels
+from .models import responses as responsemodels
+
 from .constants.errors import FailedRequest
 from .utils import removeFile
 
 class CopacoOrders:
 
-    def __init__(self, customerId, senderId):
+    def __init__(self, customerId, senderId, test=False):
 
         self.senderId = senderId
         self.customerId = customerId
         self.method = 'HTTP'
         self.xmlHandler = XMLHandler()
 
-        self.testRequestUrl = 'https://connect.copaco.com/xmlorder-test'
-        self.requestUrl = 'https://connect.copaco.com/xmlorder'
+        testRequestUrl = 'https://connect.copaco.com/xmlorder-test'
+        prodRequestUrl = 'https://connect.copaco.com/xmlorder'
 
-        self.testResponseUrl = 'http://connect.copaco.com/xmlresponses-test'
-        self.responseUrl = 'http://connect.copaco.com/xmlresponses'
+        self.requestUrl = testRequestUrl if test else prodRequestUrl
+
+        testResponseUrl = 'http://connect.copaco.com/xmlresponses-test'
+        prodResponseUrl = 'http://connect.copaco.com/xmlresponses'
+
+        self.responseUrl = testRequestUrl if test else prodResponseUrl
     
     def create(self,
         external_document_id,
@@ -35,13 +40,13 @@ class CopacoOrders:
         ''' Simplified create function to create a basic Order object, returns an Order object '''
 
         today = datetime.datetime.today().strftime('%d-%m-%Y')
-        customer = Customer().create(customerid=self.customerId)
-        ship_to = ShipTo()
-        ordertext = OrderText()
-        header = OrderHeader().create(ship_to=ship_to, ordertext=ordertext, requested_deliverydate=requested_deliverydate, recipientsreference=recipientsreference, sender_id=self.senderId, orderdate=today, customer_ordernumber=customer_ordernumber, customer=customer, completedelivery=completedelivery)
-        orderlines = OrderLines()
+        customer = ordermodels.Customer().create(customerid=self.customerId)
+        ship_to = ordermodels.ShipTo()
+        ordertext = ordermodels.OrderText()
+        header = ordermodels.OrderHeader().create(ship_to=ship_to, ordertext=ordertext, requested_deliverydate=requested_deliverydate, recipientsreference=recipientsreference, sender_id=self.senderId, orderdate=today, customer_ordernumber=customer_ordernumber, customer=customer, completedelivery=completedelivery)
+        orderlines = ordermodels.OrderLines()
         
-        order = Order().create(
+        order = ordermodels.Order().create(
             external_document_id=external_document_id,
             supplier=supplier,
             orderheader=header,
@@ -64,7 +69,7 @@ class CopacoOrders:
         with open(filePath, 'rb') as f: data = f.read()
         removeFile(filePath)
 
-        response = requests.post(self.testRequestUrl, data=data)
+        response = requests.post(self.requestUrl, data=data)
         if response.status_code == 200: return True
         else: raise FailedRequest(response.content)
     
@@ -81,23 +86,23 @@ class CopacoOrders:
         respTypes = {
             'orderresponse' : {
                 'list' : [],
-                'object' : OrderResponse,
+                'object' : responsemodels.OrderResponse,
             },
             'orderconfirmation' : {
                 'list' : [],
-                'object' : OrderConfirmation,
+                'object' : responsemodels.OrderConfirmation,
             },
             'invoice' : {
                 'list' : [],
-                'object' : Invoice,
+                'object' : responsemodels.Invoice,
             },
             'dispatchadvice' : {
                 'list' : [],
-                'object' : DispatchAdvice,
+                'object' : responsemodels.DispatchAdvice,
             }
         }
 
-        url = '{respUrl}/?distributor_id={distributor}&customer_id={customer_id}&sender_id={sender_id}&type={type}'.format(respUrl=self.testResponseUrl, distributor=distributor, customer_id=self.customerId, sender_id=self.senderId, type=type)
+        url = '{respUrl}/?distributor_id={distributor}&customer_id={customer_id}&sender_id={sender_id}&type={type}'.format(respUrl=self.responseUrl, distributor=distributor, customer_id=self.customerId, sender_id=self.senderId, type=type)
         
         response = requests.get(url)
         if response.status_code == 200: data = response.content
